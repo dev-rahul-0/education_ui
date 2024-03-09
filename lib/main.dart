@@ -194,12 +194,12 @@ class MyApp extends StatelessWidget {
                     itemCount: imgList.length,
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 3,
                       crossAxisSpacing: 10,
                       mainAxisSpacing: 10,
-                      childAspectRatio:
-                          (MediaQuery.of(context).size.height-50-20),
+                      childAspectRatio: 0.8,
                     ),
                     itemBuilder: (context, index) {
                       return InkWell(
@@ -215,7 +215,7 @@ class MyApp extends StatelessWidget {
                               Padding(
                                 padding: const EdgeInsets.all(10),
                                 child: Image.asset(
-                                  "images/${imgList[index]}.png",
+                                  "assets/images/${imgList[index]}.png",
                                   width: 400,
                                 ),
                               ),
