@@ -1,3 +1,4 @@
+import 'package:education_ui/cource_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -53,7 +54,12 @@ List<Icon> catIcons = [
   ),
 ];
 
-List imgList = ["C#", "Flutter", "Python", "React Native"];
+List imgList = [
+  "C#",
+  "Flutter",
+  "Python",
+  "React Native"
+];
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -198,12 +204,14 @@ class MyApp extends StatelessWidget {
                       crossAxisCount: 2,
                       crossAxisSpacing: 10,
                       mainAxisSpacing: 10,
-                      childAspectRatio:
-                          (MediaQuery.of(context).size.height-50-20),
+                      childAspectRatio: 0.5,
+                      mainAxisExtent: 250
                     ),
                     itemBuilder: (context, index) {
                       return InkWell(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=> const CourseScreen(img: '',)));
+                        },
                         child: Container(
                           padding: const EdgeInsets.symmetric(
                               vertical: 20, horizontal: 10),
@@ -216,7 +224,7 @@ class MyApp extends StatelessWidget {
                                 padding: const EdgeInsets.all(10),
                                 child: Image.asset(
                                   "images/${imgList[index]}.png",
-                                  width: 400,
+                                  width: 100,
                                 ),
                               ),
                               const SizedBox(
@@ -249,6 +257,19 @@ class MyApp extends StatelessWidget {
                 ],
               ),
             )
+          ],
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          showUnselectedLabels: true,
+          iconSize:  32,
+          selectedItemColor: const Color(0xFF674AEF),
+          selectedFontSize: 18,
+          unselectedItemColor: Colors.grey,
+          items: [
+            const BottomNavigationBarItem(icon: Icon(Icons.home),label: 'Home'),
+            const BottomNavigationBarItem(icon: Icon(Icons.assessment),label: 'Courses'),
+            const BottomNavigationBarItem(icon: Icon(Icons.favorite),label: 'Wishlist'),
+            const BottomNavigationBarItem(icon: Icon(Icons.person),label: 'Account'),
           ],
         ),
       ),
